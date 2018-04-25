@@ -18,6 +18,7 @@ python preprocess.py [CLEVR directory]
 python image_feature.py [CLEVR directory]
 ```
 !CAUTION! the size of file created by image_feature.py is very large! (~70 GiB) You may use hdf5 compression, but it will slow down feature extraction.
+
 3. Run train.py
 ```
 python train.py [CLEVR directory]
