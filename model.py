@@ -97,7 +97,6 @@ class WriteUnit(nn.Module):
         if self.memory_gate:
             control = self.control(controls[-1])
             gate = F.sigmoid(control)
-            print(controls[-1].shape, gate.shape, prev_mem.shape)
             next_mem = gate * prev_mem + (1 - gate) * next_mem
 
         return next_mem
