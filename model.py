@@ -95,8 +95,9 @@ class WriteUnit(nn.Module):
             next_mem = self.mem(attn_mem) + concat
 
         if self.memory_gate:
-            control = self.control(controls[-1].permute(0, 2, 1))
-            gate = F.sigmoid(control).squeeze(2)
+            control = self.control(controls[-1])
+            gate = F.sigmoid(control)
+            print(controls[-1].shape, gate.shape, prev_mem.shape)
             next_mem = gate * prev_mem + (1 - gate) * next_mem
 
         return next_mem
