@@ -125,4 +125,4 @@ if __name__ == '__main__':
         with open(
             'checkpoint/checkpoint_{}.model'.format(str(epoch + 1).zfill(2)), 'wb'
         ) as f:
-            torch.save(net, f)
+            torch.save(net_running.state_dict(), f)
